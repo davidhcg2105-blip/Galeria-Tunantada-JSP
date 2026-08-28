@@ -10,7 +10,9 @@ html {
 
 body {
     min-height: 100vh;
+
     font-family: "Segoe UI", Arial, sans-serif;
+
     color: #2d1b16;
 
     background:
@@ -27,8 +29,9 @@ body {
 
 .encabezado {
     padding: 28px 5%;
-    text-align: center;
+
     color: white;
+    text-align: center;
 
     background:
         linear-gradient(
@@ -39,13 +42,17 @@ body {
         );
 
     border-bottom: 5px solid #f2c14e;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.35);
 }
 
 .encabezado h1 {
     margin-bottom: 8px;
+
     font-family: Georgia, serif;
     font-size: clamp(30px, 5vw, 52px);
+
     letter-spacing: 2px;
 }
 
@@ -63,6 +70,10 @@ body {
     margin: 35px auto;
 }
 
+/* ===================================
+   PRESENTACIÓN
+   =================================== */
+
 .presentacion {
     margin-bottom: 24px;
     padding: 20px 25px;
@@ -70,8 +81,12 @@ body {
     color: white;
     text-align: center;
 
-    background: rgba(75, 15, 23, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background:
+        rgba(75, 15, 23, 0.9);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
     border-radius: 15px;
 
     backdrop-filter: blur(6px);
@@ -79,7 +94,9 @@ body {
 
 .presentacion h2 {
     margin-bottom: 8px;
+
     color: #ffd66b;
+
     font-family: Georgia, serif;
     font-size: 28px;
 }
@@ -94,16 +111,24 @@ body {
 
 .galeria {
     display: grid;
-    grid-template-columns: 110px minmax(0, 1fr);
+
+    grid-template-columns:
+        110px minmax(0, 1fr);
+
     gap: 18px;
 
     padding: 25px;
 
-    background: rgba(255, 255, 255, 0.97);
-    border: 3px solid #d6a93a;
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    border:
+        3px solid #d6a93a;
+
     border-radius: 18px;
 
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.4);
 }
 
 /* ===================================
@@ -113,20 +138,25 @@ body {
 .miniaturas {
     display: flex;
     flex-direction: column;
+
     gap: 10px;
 }
 
 .miniatura {
     width: 100%;
     height: 82px;
+
     padding: 4px;
 
     overflow: hidden;
 
-    border: 3px solid #dddddd;
+    border:
+        3px solid #dddddd;
+
     border-radius: 10px;
 
     background: white;
+
     cursor: pointer;
 
     transition:
@@ -137,7 +167,9 @@ body {
 
 .miniatura:hover {
     border-color: #d18b20;
-    transform: translateX(4px);
+
+    transform:
+        translateX(4px);
 }
 
 .miniatura.activa {
@@ -152,6 +184,7 @@ body {
     height: 100%;
 
     display: block;
+
     object-fit: cover;
 
     border-radius: 5px;
@@ -163,12 +196,14 @@ body {
 
 .visor {
     position: relative;
+
     min-width: 0;
     min-height: 580px;
 
     overflow: hidden;
 
     background: #1e1412;
+
     border-radius: 14px;
 }
 
@@ -177,6 +212,7 @@ body {
     height: 580px;
 
     display: block;
+
     object-fit: contain;
 
     cursor: zoom-in;
@@ -187,36 +223,47 @@ body {
 }
 
 .imagen-principal:hover {
-    transform: scale(1.015);
+    transform:
+        scale(1.015);
 }
 
 .contador {
     position: absolute;
+
     top: 14px;
     right: 14px;
+
     z-index: 3;
 
     padding: 7px 12px;
 
     color: white;
-    background: rgba(65, 10, 18, 0.88);
+
+    background:
+        rgba(65, 10, 18, 0.88);
 
     border-radius: 20px;
+
     font-weight: bold;
 }
 
 .aviso-zoom {
     position: absolute;
+
     top: 14px;
     left: 14px;
+
     z-index: 3;
 
     padding: 8px 12px;
 
     color: white;
-    background: rgba(65, 10, 18, 0.88);
+
+    background:
+        rgba(65, 10, 18, 0.88);
 
     border-radius: 20px;
+
     font-size: 13px;
 }
 
@@ -226,7 +273,9 @@ body {
 
 .flecha {
     position: absolute;
+
     top: 50%;
+
     z-index: 4;
 
     width: 48px;
@@ -236,12 +285,16 @@ body {
     border-radius: 50%;
 
     color: white;
-    background: rgba(107, 15, 28, 0.88);
+
+    background:
+        rgba(107, 15, 28, 0.88);
 
     font-size: 25px;
+
     cursor: pointer;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
     transition:
         background 0.25s,
@@ -270,12 +323,15 @@ body {
 
 .informacion {
     position: absolute;
+
     right: 0;
     bottom: 0;
     left: 0;
+
     z-index: 2;
 
-    padding: 45px 30px 25px;
+    padding:
+        45px 30px 25px;
 
     color: white;
 
@@ -302,22 +358,81 @@ body {
 }
 
 /* ===================================
+   CONTROLES DE LA GALERÍA
+   =================================== */
+
+.controles-galeria {
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+.boton-automatico {
+    padding: 13px 25px;
+
+    border:
+        2px solid #ffd66b;
+
+    border-radius: 25px;
+
+    color: white;
+
+    background: #7c1323;
+
+    font-family:
+        "Segoe UI", Arial, sans-serif;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25);
+
+    transition:
+        background 0.25s,
+        color 0.25s,
+        transform 0.25s;
+}
+
+.boton-automatico:hover {
+    color: #5b0d19;
+
+    background: #ffd66b;
+
+    transform:
+        translateY(-2px);
+}
+
+.boton-automatico.reproduciendo {
+    color: white;
+
+    background: #277044;
+
+    border-color: #7ee2a8;
+}
+
+/* ===================================
    INSTRUCCIONES
    =================================== */
 
 .instrucciones {
-    margin-top: 23px;
+    margin-top: 20px;
     padding: 20px;
 
     color: white;
     text-align: center;
 
-    background: rgba(75, 15, 23, 0.92);
+    background:
+        rgba(75, 15, 23, 0.92);
+
     border-radius: 14px;
 }
 
 .instrucciones h3 {
     margin-bottom: 8px;
+
     color: #ffd66b;
 }
 
@@ -327,17 +442,21 @@ body {
 
 .modal {
     position: fixed;
+
     inset: 0;
+
     z-index: 100;
 
     display: none;
+
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
     padding: 30px;
 
-    background: rgba(0, 0, 0, 0.95);
+    background:
+        rgba(0, 0, 0, 0.95);
 }
 
 .modal.abierto {
@@ -354,7 +473,10 @@ body {
     object-fit: contain;
 
     background: white;
-    border: 5px solid white;
+
+    border:
+        5px solid white;
+
     border-radius: 12px;
 }
 
@@ -369,18 +491,22 @@ body {
 
 .cerrar {
     position: absolute;
+
     top: 15px;
     right: 30px;
 
     border: none;
 
     color: white;
+
     background: transparent;
 
     font-size: 50px;
+
     cursor: pointer;
 
-    transition: color 0.2s;
+    transition:
+        color 0.2s;
 }
 
 .cerrar:hover {
@@ -398,7 +524,9 @@ body {
     text-align: center;
 
     background: #3a0911;
-    border-top: 4px solid #d18b20;
+
+    border-top:
+        4px solid #d18b20;
 }
 
 /* ===================================
@@ -408,13 +536,17 @@ body {
 @media (max-width: 750px) {
     .galeria {
         grid-template-columns: 1fr;
+
         padding: 15px;
     }
 
     .miniaturas {
         order: 2;
+
         flex-direction: row;
+
         overflow-x: auto;
+
         padding-bottom: 5px;
     }
 
@@ -433,7 +565,8 @@ body {
     }
 
     .informacion {
-        padding: 45px 18px 18px;
+        padding:
+            45px 18px 18px;
     }
 
     .informacion h2 {
@@ -461,6 +594,7 @@ body {
     .flecha {
         width: 40px;
         height: 40px;
+
         font-size: 20px;
     }
 
@@ -469,6 +603,11 @@ body {
     }
 
     .encabezado {
-        padding: 22px 12px;
+        padding:
+            22px 12px;
+    }
+
+    .boton-automatico {
+        width: 100%;
     }
 }
