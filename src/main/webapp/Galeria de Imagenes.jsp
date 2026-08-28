@@ -21,18 +21,23 @@
     <!-- Encabezado -->
 
     <header class="encabezado">
+
         <h1>Galería de la Tunantada</h1>
 
         <p>
             Tradición, música y elegancia del valle de Jauja
         </p>
+
     </header>
 
     <!-- Contenido principal -->
 
     <main class="contenedor">
 
+        <!-- Presentación -->
+
         <section class="presentacion">
+
             <h2>La Tunantada</h2>
 
             <p>
@@ -40,6 +45,7 @@
                 vestimentas y momentos representativos de esta
                 tradicional danza de Jauja.
             </p>
+
         </section>
 
         <!-- Galería -->
@@ -58,6 +64,7 @@
                     <img
                         src="<%=request.getContextPath()%>/Imagenes/imagen1.jpg"
                         alt="Celebración de la Tunantada">
+
                 </button>
 
                 <button class="miniatura"
@@ -68,6 +75,7 @@
                     <img
                         src="<%=request.getContextPath()%>/Imagenes/imagen2.jpg"
                         alt="Personaje de la Tunantada">
+
                 </button>
 
                 <button class="miniatura"
@@ -78,6 +86,7 @@
                     <img
                         src="<%=request.getContextPath()%>/Imagenes/imagen3.jpg"
                         alt="Pareja bailando Tunantada">
+
                 </button>
 
                 <button class="miniatura"
@@ -88,6 +97,7 @@
                     <img
                         src="<%=request.getContextPath()%>/Imagenes/imagen4.jpg"
                         alt="Danzantes de la Tunantada">
+
                 </button>
 
                 <button class="miniatura"
@@ -97,7 +107,8 @@
 
                     <img
                         src="<%=request.getContextPath()%>/Imagenes/imagen5.jpg"
-                        alt="Presentación tradicional">
+                        alt="Música y tradición">
+
                 </button>
 
                 <button class="miniatura"
@@ -108,11 +119,12 @@
                     <img
                         src="<%=request.getContextPath()%>/Imagenes/imagen6.jpg"
                         alt="Personaje tradicional">
+
                 </button>
 
             </div>
 
-            <!-- Visor de la imagen principal -->
+            <!-- Visor principal -->
 
             <div class="visor">
 
@@ -125,12 +137,18 @@
                     Clic para ampliar
                 </span>
 
+                <!-- Flecha anterior -->
+
                 <button class="flecha anterior"
                         type="button"
                         onclick="imagenAnterior()"
                         aria-label="Mostrar imagen anterior">
+
                     &#10094;
+
                 </button>
+
+                <!-- Imagen principal -->
 
                 <img
                     id="imagenPrincipal"
@@ -139,12 +157,18 @@
                     alt="Celebración de la Tunantada"
                     onclick="abrirModal()">
 
+                <!-- Flecha siguiente -->
+
                 <button class="flecha siguiente"
                         type="button"
                         onclick="imagenSiguiente()"
                         aria-label="Mostrar imagen siguiente">
+
                     &#10095;
+
                 </button>
+
+                <!-- Información -->
 
                 <div class="informacion">
 
@@ -164,7 +188,22 @@
 
         </section>
 
-        <!-- Explicación -->
+        <!-- Botón de reproducción automática -->
+
+        <div class="controles-galeria">
+
+            <button id="botonAutomatico"
+                    class="boton-automatico"
+                    type="button"
+                    onclick="controlarPresentacion()">
+
+                Iniciar presentación
+
+            </button>
+
+        </div>
+
+        <!-- Instrucciones -->
 
         <section class="instrucciones">
 
@@ -174,6 +213,7 @@
                 Selecciona una miniatura o utiliza las flechas
                 para cambiar de imagen. Haz clic sobre la imagen
                 principal para verla en un tamaño mayor.
+                También puedes iniciar la presentación automática.
             </p>
 
         </section>
@@ -192,7 +232,9 @@
                 type="button"
                 onclick="cerrarModal()"
                 aria-label="Cerrar ventana">
+
             &times;
+
         </button>
 
         <img
@@ -207,11 +249,13 @@
     <!-- Pie de página -->
 
     <footer class="pie">
+
         <p>
-            Tarea 03
+            Trabajo realizado por
             <strong>COLLANA GASPAR DAVID</strong>
-            - 2026
+            - Taller de Programación
         </p>
+
     </footer>
 
     <!-- JavaScript -->
@@ -243,7 +287,7 @@
                 archivo: "imagen4.jpg",
                 titulo: "Encuentro de danzantes",
                 descripcion:
-                    "Los participantes se reúnen para expresar mediante el baile la tradición y alegría del pueblo jaujino."
+                    "Los participantes expresan mediante el baile la tradición y alegría del pueblo jaujino."
             },
             {
                 archivo: "imagen5.jpg",
@@ -255,11 +299,15 @@
                 archivo: "imagen6.jpg",
                 titulo: "Personaje de la Tunantada",
                 descripcion:
-                    "Cada personaje utiliza una vestimenta particular, máscara y diferentes accesorios tradicionales."
+                    "Cada personaje utiliza una vestimenta particular, una máscara y diferentes accesorios tradicionales."
             }
         ];
 
         let posicionActual = 0;
+
+        let intervaloAutomatico = null;
+
+        let presentacionActiva = false;
 
         const imagenPrincipal =
             document.getElementById("imagenPrincipal");
@@ -275,6 +323,10 @@
 
         const miniaturas =
             document.querySelectorAll(".miniatura");
+
+        /*
+         * Cambiar la imagen principal.
+         */
 
         function seleccionarImagen(posicion) {
             posicionActual = posicion;
@@ -316,6 +368,10 @@
             }, 150);
         }
 
+        /*
+         * Mostrar la imagen siguiente.
+         */
+
         function imagenSiguiente() {
             let nuevaPosicion =
                 posicionActual + 1;
@@ -326,6 +382,10 @@
 
             seleccionarImagen(nuevaPosicion);
         }
+
+        /*
+         * Mostrar la imagen anterior.
+         */
 
         function imagenAnterior() {
             let nuevaPosicion =
@@ -338,6 +398,10 @@
 
             seleccionarImagen(nuevaPosicion);
         }
+
+        /*
+         * Abrir la imagen en una ventana emergente.
+         */
 
         function abrirModal() {
             const modal =
@@ -364,6 +428,10 @@
                 "hidden";
         }
 
+        /*
+         * Cerrar la ventana emergente.
+         */
+
         function cerrarModal() {
             const modal =
                 document.getElementById("modal");
@@ -374,6 +442,51 @@
                 "";
         }
 
+        /*
+         * Iniciar o pausar la presentación automática.
+         */
+
+        function controlarPresentacion() {
+            const boton =
+                document.getElementById("botonAutomatico");
+
+            if (presentacionActiva === false) {
+                intervaloAutomatico =
+                    window.setInterval(
+                        imagenSiguiente,
+                        4000
+                    );
+
+                presentacionActiva = true;
+
+                boton.textContent =
+                    "Pausar presentación";
+
+                boton.classList.add(
+                    "reproduciendo"
+                );
+            } else {
+                window.clearInterval(
+                    intervaloAutomatico
+                );
+
+                intervaloAutomatico = null;
+
+                presentacionActiva = false;
+
+                boton.textContent =
+                    "Iniciar presentación";
+
+                boton.classList.remove(
+                    "reproduciendo"
+                );
+            }
+        }
+
+        /*
+         * Cerrar el modal al hacer clic fuera de la imagen.
+         */
+
         document.getElementById("modal")
             .addEventListener(
                 "click",
@@ -383,6 +496,10 @@
                     }
                 }
             );
+
+        /*
+         * Controles con el teclado.
+         */
 
         document.addEventListener(
             "keydown",
@@ -408,6 +525,10 @@
                 }
             }
         );
+
+        /*
+         * Mostrar la primera imagen al cargar la página.
+         */
 
         seleccionarImagen(0);
     </script>
